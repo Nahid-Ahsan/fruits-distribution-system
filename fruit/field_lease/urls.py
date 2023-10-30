@@ -9,3 +9,4 @@ urlpatterns = [
     path('book-field/<int:field_id>', views.book_field, name='book-field'), 
     path('api-token-auth/',v.obtain_auth_token,name='api-token-auth')
 ]
+

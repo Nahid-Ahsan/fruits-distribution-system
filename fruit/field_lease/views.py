@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 
 @api_view(['GET'])
+@login_required
 def field_list(request):
     # Get a list of available fields for lease
     fields = Field.objects.all()
@@ -17,8 +18,9 @@ def field_list(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
+@login_required
 def field_detail(request, field_id):
-    # Display details of a specific field
+   
     try:
         field = Field.objects.get(id=field_id)
         serializer = FieldSerializer(field)
@@ -27,6 +29,7 @@ def field_detail(request, field_id):
         return Response({'error': 'Field not found'}, status=status.HTTP_404_NOT_FOUND)
 
 @api_view(['POST'])
+@login_required
 def book_field(request, field_id):
     # Handle booking a field
     field = Field.objects.get(id=field_id)

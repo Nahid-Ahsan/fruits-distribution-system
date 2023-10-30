@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "homepage",
     "field_lease",
     "users",
-    "food"
+    "food",
+    "fruitDisease",
    
 ]
 

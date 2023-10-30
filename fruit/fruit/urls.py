@@ -23,4 +23,5 @@ urlpatterns = [
     path('lease/', include('field_lease.urls')),
     path('', include('users.urls')),
     path('food/', include('food.urls')),
+    path('', include('fruitDisease.urls')),
 ]
