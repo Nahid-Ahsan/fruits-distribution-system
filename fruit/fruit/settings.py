@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework.authtoken',
     "homepage",
-    "field_lease",
     "users",
     "food",
     "fruitDisease",
+    "fieldLease",
    
 ]
 

@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Category, FoodItem
+from .models import Category, fruitItem
 
-class FoodItemSerializer(serializers.ModelSerializer):
+class FruitItemSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FoodItem
+        model = fruitItem
         fields = '__all__'
 
 class CategorySerializer(serializers.ModelSerializer):

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -6,11 +7,25 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class FoodItem(models.Model):
-    name = models.CharField(max_length=100)
+class fruitItem(models.Model):
+    seller = models.ForeignKey(User, on_delete=models.CASCADE)
+    fruitName = models.CharField(max_length=100)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='food_images/')  # Define an image field
+    quantity = models.DecimalField(max_digits=10, decimal_places=2)
+    image = models.ImageField(upload_to='food_images/',  blank=True)  
 
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.name
+
+
+
+class fruitBooking(models.Model):
+    seller_id = models.ForeignKey(fruitItem, on_delete=models.CASCADE)
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    seller = models.CharField(max_length=255) 
+    fruit_requested = models.DecimalField(max_digits=5, decimal_places=2)
+    start_date = models.DateField()
+    contact_email = models.EmailField()
+    contact_phone = models.CharField(max_length=15)
+
