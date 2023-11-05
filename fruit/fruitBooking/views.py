@@ -27,7 +27,6 @@ class BookFruitView(APIView):
             return Response({"error": "You can't book your own fruit item"}, status=status.HTTP_400_BAD_REQUEST)
 
         buyer_id = request.data.get("buyer")
-        print(buyer_id)
         try:
             buyer = User.objects.get(id=buyer_id)
         except User.DoesNotExist:
@@ -45,9 +44,9 @@ class BookFruitView(APIView):
             return Response({"error": "Not enough quantity available for booking"}, status=status.HTTP_400_BAD_REQUEST)
 
         booking = fruitBooking(
-            seller_id=fruit_item,
+            fruit_name=fruit_item,
             buyer=buyer,
-            seller=fruit_item.seller.username,  # Assuming you want to store the seller's name
+            seller=fruit_item.seller.username,  
             fruit_requested=fruit_requested,
             start_date=start_date,
             contact_email=contact_email,
@@ -56,3 +55,4 @@ class BookFruitView(APIView):
 
         booking.save()
         return Response({"message": "Booking successful"}, status=status.HTTP_201_CREATED)
+

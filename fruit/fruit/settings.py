@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     "homepage",
     "users",
-    "food",
     "fruitDisease",
     "fieldLease",
+    "fruitBooking",
    
 ]
 
