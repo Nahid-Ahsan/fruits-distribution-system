@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "fruitDisease",
     "fieldLease",
     "fruitBooking",
+    "corsheaders"
    
 ]
 
